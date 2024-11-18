@@ -13,7 +13,7 @@ Webflow.push(function () {
     $('[tf-custom-select-option-value]').attr('data-submit', 'ignore');
 
     /* Custom Dropdown Select Functions */
-    $('[tf-custom-select-multiple]').each(function(index, item) {
+    $('[tf-custom-select-wrapper]').each(function(index, item) {
         const isMultipleSelect = item.hasAttribute("tf-custom-select-multiple");
         const $currentDropdown = $(this).find('.w-dropdown');
         const $currentDropdownResultElement = $(this).find('[tf-custom-select-result]');
