@@ -31,21 +31,23 @@ Webflow.push(function () {
                 });
                 $currentHiddenInput.val(selectedValuesList);
                 customTriggerChangeEvent($currentHiddenInput.get(0));
-                $currentDropdownResultElement.html('');
-                if(selectedOptionsElements.length > 0){
-                    selectedOptionsElements.map((selectedOptionsElement)=>{
-                        $currentDropdownResultElement.append(selectedOptionsElement);
-                    })
-                }else{
-                    $currentDropdownResultElement.html($currentPlaceHolderElement);
+                if($currentDropdownResultElement.length > 0) {
+                    $currentDropdownResultElement.html('');
+                    if(selectedOptionsElements.length > 0){
+                        selectedOptionsElements.map((selectedOptionsElement)=>{
+                            $currentDropdownResultElement.append(selectedOptionsElement);
+                        })
+                    }else{
+                        $currentDropdownResultElement.html($currentPlaceHolderElement);
+                    }
                 }
             }else{
                 $(this).siblings().removeClass('active');
                 $(this).addClass('active');
-                $currentDropdownResultElement.html($(this).html());
+                if($currentDropdownResultElement.length > 0) $currentDropdownResultElement.html($(this).html());
                 $currentHiddenInput.val($(this).attr('tf-custom-select-option-value'));
             }
-            $currentDropdown.trigger('w-close');
+            if($currentDropdown.length > 0) $currentDropdown.trigger('w-close');
         });
     });
 })
