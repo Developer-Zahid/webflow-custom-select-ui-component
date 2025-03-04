@@ -15,6 +15,7 @@ Webflow.push(function () {
     /* Custom Dropdown Select Functions */
     $('[tf-custom-select-wrapper]').each(function(index, item) {
         const isMultipleSelect = item.hasAttribute("tf-custom-select-multiple");
+        const $currentWrapper = $(this);
         const $currentDropdown = $(this).find('.w-dropdown');
         const $currentDropdownResultElement = $(this).find('[tf-custom-select-result]');
         const $currentHiddenInput = $(this).find('[tf-custom-select-input]');
@@ -25,7 +26,7 @@ Webflow.push(function () {
                 let selectedValuesList = [];
                 let selectedOptionsElements = [];
                 $(this).toggleClass('active');
-                $currentDropdown.find('.active[tf-custom-select-option-value]').each(function () {
+                $currentWrapper.find('.active[tf-custom-select-option-value]').each(function () {
                     selectedValuesList.push($(this).attr('tf-custom-select-option-value'));
                     selectedOptionsElements.push($(this).html());
                 });
